@@ -211,7 +211,7 @@ const loop = function () {
   if (cheat == 0) {
 	  square.xVelocity = (4 + (frameCount/2))*kill;	
   } else {
-	  square.xVelocity = 100;
+	  square.xVelocity = (4 + (frameCount/2))*kill;
   }	  
   
   square.yVelocity += 1.5*killy;
