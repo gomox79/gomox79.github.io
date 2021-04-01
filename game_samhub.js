@@ -10,7 +10,7 @@ const obXCoors = [];
 var obCol = [];
 var demerits = 0;
 let token = 0;
-var cheat = 0;
+let cheat = 0;
 let kill = 1;
 let killy = 1;
 let safety = 1;
@@ -208,11 +208,8 @@ const loop = function () {
 
   }
   
-  if (cheat == 0) {
-	  square.xVelocity = (4 + (frameCount/2))*kill;	
-  } else {
-	  square.xVelocity = (4 + (frameCount/2))*kill;
-  }	  
+  square.xVelocity = (4 + (frameCount/2))*kill;
+
   
   square.yVelocity += 1.5*killy;
   square.x += square.xVelocity;
