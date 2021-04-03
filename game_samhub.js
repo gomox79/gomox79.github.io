@@ -43,7 +43,7 @@ const square = {
   jumping: true,
   width: 125,
   x: 0,
-  xVelocity: 0.5,
+  xVelocity: 1,
   y: 0,
   yVelocity: 0
 };
