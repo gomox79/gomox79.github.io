@@ -20,7 +20,7 @@ cheat = localStorage.getItem('cheat');
 
 // Variable text / images
 var dcount = document.getElementById("dem"); dcount.value = 0;
-var lvl = document.getElementById("off"); lvl.value = "Model Captain";
+var lvl = document.getElementById("off"); lvl.value = "DepDant";
 var loc = document.getElementById("loc"); loc.value = "Rotunda";
 var bg=document.getElementById("bg1");
 var pic = [];
@@ -133,7 +133,7 @@ function lvlcount() {
 		lvl.value = 'DTA furor';
 		break;
 		case 3:
-		lvl.value = 'CapGaz';
+		lvl.value = 'Cap Gaz';
 		break;
 		case 4:
 		lvl.value = 'NavyTimes';
