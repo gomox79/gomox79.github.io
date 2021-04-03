@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+
+<style type='text/css'>
+	.button {
+		background-color: rgb(0,0,110);
+		border: none;
+		color: rgb(215,165,32);
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+	}
+	.location {
+		resize: none;
+		background-color: rgba(255, 0, 0, 0.5);
+		border: black;
+		height: 40px;
+		width: 300px;
+		text-align: center;
+		font: 20px Arial, sans-serif;
+	}
+	.menu {
+		left: 8in; 
+        top: 3.5in; 	
+		resize: none;
+		background-color: rgba(255, 0, 0, 0.4);
+		border: none;
+		height: 150px;
+		width: 400px;
+		text-align: center;
+		font-size: 50px;
+	 }
+</style>
+
+<head>
+	<link rel="icon" href="axle-face.png">
+	<meta charset="UTF-8">
+    <meta name = "viewport" content = "width=device-width">
+	<DIV id="A0" style="display:block">
+		<img src="LOGO.png" width="164.5" height="79">A funny little game by William Andriamihaja & Duncan Stoner<br />
+	</DIV>
+</head>
+
+<body>
+	<h1 style = "align:center"> <input type = "button" class = "button" value = "Start game" onclick = "start()"></br> </h1>
+	<h2> <input type = "button" class = "button" value = "Enter code for unlockables" onclick = "unlock()"></br> </h2>
+	<h3 id = "unlock" style = "display:none"> 
+	<p style = "text-align:center"> Input your code(s) here: </p>
+	<p style = "text-align:center"> <textarea id = "cheat" class = "location" rows="1"> </textarea> </p> 
+	<p style = "text-align:center"> <input type = "button" value = "Validate" onclick = "set()"> </p> </br>
+	<h5> <input type = "button" class = "button" value = "Back to company website" onclick = "samhub()" ></br> </h5>
+	
+	<script type = "text/javascript">
+	var x = document.getElementById("unlock");
+	var y = document.getElementById("cheat");
+	x.style.display = 'none';
+	y.value = 'Write your code(s) here.';
+	var z = "Jack.html";
+	
+		function start() {
+			set();
+			window.location.href = z;
+		}
+		
+		function unlock() {
+			if (x.style.display == 'none') {
+				x.style.display = 'block';
+			} else {
+				x.style.display = 'none';
+			}
+		}
+		
+		function set() {
+			if (y.value == 'Reverse') {
+				z = "Axle.html";
+				y.value = 'element unlocked: reverse';
+			} else {
+				localStorage.clear();
+				localStorage.setItem('cheat', 0);
+				y.value = 'invalid code';
+			}
+		}
+		
+		function samhub() {
+			window.location.href = "https://sites.google.com/usna.edu/samuraihub/mislo?authuser=1";
+		}
+		
+		window.onload = function() {
+			y.value = 'Write your code(s) here.';
+			z = "index.html";
+		}
+	</script>
+</body>
+	

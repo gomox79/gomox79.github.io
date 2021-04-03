@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html>
+<STYLE type="text/css">
+      .pile { 
+        position: absolute; 
+        left: 8in; 
+        top: 4.25in; 
+        width: 375px; 
+        height: 50px; 
+		text-align: center;
+		font-size: 25px;
+		background-color: rgba(255, 0, 0, 0.4);
+      }
+	  .sep {
+		position: absolute;
+		left: 8.5in; 
+        top: 3.85in; 	
+		resize: none;
+		background-color: rgba(255, 0, 0, 0.4);
+		border: none;
+		height: 60px;
+		width: 300px;
+		text-align: center;
+		font-size: 25px;
+	  }
+	  .count {
+		position: absolute;
+		left: 8in; 
+        top: 3.5in; 	
+		resize: none;
+		background-color: rgba(255, 0, 0, 0);
+		border: none;
+		height: 150px;
+		width: 400px;
+		text-align: center;
+		font-size: 50px;
+	  }
+	  .textarea {
+		resize: none;
+		background-color: #F1F1F1;
+		border: none;
+		height: 60px;
+		width: 100px;
+		text-align: center;
+		font-size: 50px;
+	  }
+	  .level {
+		resize: none;
+		background-color: #F1F1F1;
+		border: none;
+		height: 60px;
+		width: 300px;
+		text-align: center;
+		font-size: 50px;
+	  }
+	  .location {
+		resize: none;
+		background-color: rgba(255, 0, 0, 0);
+		border: none;
+		height: 40px;
+		width: 300px;
+		text-align: center;
+		font: 20px Arial, sans-serif;
+	  }
+	  .menu {
+		position: absolute;
+		left: 8in; 
+        top: 3.5in; 	
+		resize: none;
+		background-color: rgba(255, 0, 0, 0.4);
+		border: none;
+		height: 150px;
+		width: 400px;
+		text-align: center;
+		font-size: 50px;
+	  }
+	  .cred {
+		font: 15px Arial, sans-serif;
+		text-align: center;
+	  }
+    </STYLE>
+
+  <head>
+
+	<link rel="icon" href="jack-face.png">
+	<meta charset="UTF-8">
+    <meta name = "viewport" content = "width=device-width">
+    <title>PrisoN* break</title>
+    <link href = "game.css" rel = "stylesheet" type = "text/css">
+
+  </head>
+ 
+  <body>
+
+    <h1 class="cred"><img src="LOGO.png" width="164.5" height="79"> A funny little game by William Andriamihaja & Duncan Stoner<br />
+	<br />
+	<textarea id="loc" name="location" rows="1" style="float:center" class="location"></textarea>
+	<p><input type = 'button' style = 'float:right' value = 'Back to Main Menu' onclick = 'main()'></p>
+	</h1>
+	
+    <canvas><img id="pic" src="jack-face.png" width="2578" height="2578">
+	<img id="danger" src="axle-face.png" width="2578" height="2578">
+	<img id="bg1" src="Rotunda.jpg" width="1220" height="400">
+	<img id="bg2" src="T-court.jpg" width="1220" height="400">
+	<img id="bg3" src="Stribling.jpg" width="1220" height="400">
+	<img id="bg4" src="Chapel.jpg" width="1220" height="400">
+	<img id="bg5" src="Mahan.jpeg" width="1220" height="400">
+	<img id="bg6" src="Hopper.jpg" width="1220" height="400">
+	<img id="bg7" src="Alumni.jpg" width="1220" height="400">
+	<img id="bg8" src="Hospital.jpg" width="1220" height="400">
+	</canvas>
+	<DIV id="field_0" class="pile" style='display:none;' style="z-index: 3">OH NO! THE AXE GOT YOU &#x1F631;</DIV>
+	<DIV id="field_1" class="sep" style='display:none;' style="z-index: 3">YOU'RE A HORRIBLE MIDSHIPMAN &#x1F4A9;</DIV>
+	<DIV id="field_2" class="menu" style='display:none;' style="z-index: 3">YOU WEAK! &#x1F624;<br/><input type="button" onclick="restart()" value="Restart cuz I'm weak">
+	<input type="button" onclick="resume()" value="Get back to the fight!">
+	</DIV>
+	<DIV id="field_3" class="sep" style='display:none;' style="z-index: 3">YOU ESCAPED THE PRISON, MY HERO! &#x1F60D;</DIV>
+    <h3><p style="text-align:left">DEMERITS:</p><p style="text-align:right">OFFENSE LEVEL:</p>
+	<textarea id="dem" name="demerits" rows="4" class="textarea"></textarea>
+	<textarea id="off" name="offense" rows="4" style="float:right" class="level"></textarea>
+	<p style='display:none'>
+	<audio controls loop id="myAudio">
+	<source src="Yakety.mp3" type="audio/mpeg"></audio>
+	</p>
+	</h3>
+	<h4>
+	<p style='display:none'>
+	<audio controls id="yourAudio">
+	<source src="Over.wav" type="audio/wav"></audio>
+	</p>
+	<p style='display:none'>
+	<audio controls id="hisAudio">
+	<source src="OOF.mp3" type="audio/mpeg"></audio>
+	</p>
+	<p style='display:none'>
+	<audio controls id="herAudio">
+	<source src="Boing.mp3" type="audio/mpeg"></audio>
+	</p>
+	<p style='display:none'>
+	<audio controls id="itsAudio">
+	<source src="anchors-aweigh.mp3" type="audio/mpeg"></audio>
+	</p>
+    <p>
+    <br /> <b>CONTROLS:</b>
+    <br /> <u>UP</u> to jump <br/> <u>Esc</u> to pause at any time
+    </p>
+	</h4>
+
+    <script src = "game_samhub.js" type = "text/javascript"></script>
+	<script type = "text/javascript">
+	function main() {
+		window.location.href = "main_menu.html";
+	}
+	</script>
+
+  </body>
+
+</html>
