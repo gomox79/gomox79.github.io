@@ -127,22 +127,22 @@ function success() {
 function lvlcount() {
 	switch (token) {
 		case 1:
-		lvl.value = 'You yelled at a civilian';
+		lvl.value = 'Jodel';
 		break;
 		case 2:
-		lvl.value = 'Made the furor of Jodel';
+		lvl.value = 'DTA furor';
 		break;
 		case 3:
-		lvl.value = 'Made the Cap Gazette';
+		lvl.value = 'Cap Gazette';
 		break;
 		case 4:
-		lvl.value = 'Made the Navy Times';
+		lvl.value = 'Navy Times';
 		break;
 		case 5:
-		lvl.value = "Captain's mast";
+		lvl.value = "CNN";
 		break;
 		default:
-		lvl.value = 'Yelled at by SecNav';
+		lvl.value = 'BBC World';
 		break;
 	}
 	loop;
