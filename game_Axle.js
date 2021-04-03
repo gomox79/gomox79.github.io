@@ -20,7 +20,7 @@ cheat = localStorage.getItem('cheat');
 
 // Variable text / images
 var dcount = document.getElementById("dem"); dcount.value = 0;
-var lvl = document.getElementById("off"); lvl.value = "Model Mid";
+var lvl = document.getElementById("off"); lvl.value = "Model Captain";
 var loc = document.getElementById("loc"); loc.value = "Rotunda";
 var bg=document.getElementById("bg1");
 var pic = [];
@@ -127,22 +127,22 @@ function success() {
 function lvlcount() {
 	switch (token) {
 		case 1:
-		lvl.value = 'Neg Form 1';
+		lvl.value = 'You yelled at a civilian';
 		break;
 		case 2:
-		lvl.value = 'Minor';
+		lvl.value = 'Made the furor of Jodel';
 		break;
 		case 3:
-		lvl.value = 'Major';
+		lvl.value = 'Made the Cap Gazette';
 		break;
 		case 4:
-		lvl.value = '6K';
+		lvl.value = 'Made the Navy Times';
 		break;
 		case 5:
-		lvl.value = 'Separated';
+		lvl.value = "Captain's mast";
 		break;
 		default:
-		lvl.value = 'Model Mid';
+		lvl.value = 'Yelled at by SecNav';
 		break;
 	}
 	loop;
