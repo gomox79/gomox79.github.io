@@ -133,16 +133,16 @@ function lvlcount() {
 		lvl.value = 'DTA furor';
 		break;
 		case 3:
-		lvl.value = 'Cap Gazette';
+		lvl.value = 'CapGaz';
 		break;
 		case 4:
-		lvl.value = 'Navy Times';
+		lvl.value = 'NavyTimes';
 		break;
 		case 5:
 		lvl.value = "CNN";
 		break;
 		default:
-		lvl.value = 'BBC World';
+		lvl.value = 'BBCWorld';
 		break;
 	}
 	loop;
