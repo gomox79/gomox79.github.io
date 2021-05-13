@@ -148,6 +148,11 @@ function lvlcount() {
 	loop;
 }
 
+// Fullscreen mode
+function full() {
+	context.requestFullscreen();
+}
+
 // Main script
 const loop = function () {
 	
