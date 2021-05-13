@@ -1,4 +1,5 @@
 // Canvas element
+var canvas = document.getElementById("canvas");
 const context = document.querySelector("canvas").getContext("2d");
 context.canvas.height = 600;
 context.canvas.width = 1400;
@@ -150,7 +151,7 @@ function lvlcount() {
 
 // Fullscreen mode
 function full() {
-	context.requestFullscreen();
+	canvas.requestFullscreen();
 }
 
 // Main script
