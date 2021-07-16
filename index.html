@@ -5,7 +5,21 @@
 		text-align: center;
 		height: 90px;
 		width: 90px;
-		animation: spinner 0.7s linear infinite;
+		animation: spinner 10s linear infinite;
+	}
+	
+	.spinner:hover {
+	    background-color: transparent;
+	    animation: spinner 1s linear infinite;
+	    height: 120px;
+	    width: 120px;
+	}
+	
+	.spinner:previous,
+	.spinner:previous:hover {
+	    animation: spinner 10s linear infinite;
+	    height: 90px;
+	    width: 90px;
 	}
 	
 	@keyframes spinner {
