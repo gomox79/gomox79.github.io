@@ -16,9 +16,9 @@ html, body {
 body {
 
   align-content:space-around;
-  background-color:#545f5f;
+  background-color:#0f222b;
   color:#0f222b;
-  display:flex;
+  display:grid;
   justify-content:center;
 
 }
