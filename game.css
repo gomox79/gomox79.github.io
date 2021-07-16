@@ -17,8 +17,8 @@ body {
 
   align-content:space-around;
   background-color:#545f5f;
-  color:#FBF5F3;
-  display:grid;
+  color:#0f222b;
+  display:flex;
   justify-content:center;
 
 }
