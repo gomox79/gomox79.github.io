@@ -1,60 +1,6 @@
 <!DOCTYPE HTML>
 
 <style type='text/css'>
-	$anime-time: 8s;
-	$box-size: 200px;
-	$clip-distance: .05;
-	$clip-size: $box-size * (1 + $clip-distance * 2);
-	$path-width: 2px;
-	$main-color: #69ca62;
-	
-	%full-fill {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-	}
-	
-	.bb {
-		@extend %full-fill;
-		width: $box-size;
-		height: $box-size;
-		margin: auto;
-		background: "LOGO.png" no-repeat 50% / 70% rgba(#000, .1);
-		color: $main-color;
-		box-shadow: inset 0 0 0 1px rgba($main-color, .5);
-
-		&::before,
-		&::after {
-			@extend %full-fill;
-			content: '';
-			z-index: -1;
-			margin: -1 * $clip-distance * 100%;
-			box-shadow: inset 0 0 0 $path-width; 
-			animation: clipMe $anime-time linear infinite;
-		}
-
-		&::before {
-			animation-delay: $anime-time * -.5;
-		}
-
-		// for debug
-		&:hover {
-			&::after,
-			&::before {
-				background-color: rgba(#f00, .3);
-			}
-		}
-	}
-	
-	@keyframes clipMe {
-		0%, 100% {clip: rect(0px, $clip-size, $path-width, 0px); }
-		25% {clip: rect(0px, $path-width, $clip-size, 0px); }
-		50% {clip: rect($clip-size - $path-width, $clip-size, $clip-size, 0px); }
-		75% {clip: rect(0px, $clip-size, $clip-size, $clip-size - $path-width); }
-	}
-	
 	.spinner {
 		text-align: center;
 		height: 120px;
@@ -69,101 +15,14 @@
 	}
 	
 	.button {
-		$ease-in-out-quad = cubic-bezier(0.455, 0.03, 0.515, 0.955)
-$color-grey = #A6AFC0
-$color-off-white = #34495E
-
-body
-  background-color #2c3e50
-  margin 0
-  padding 0
-  width 100%
-  height 100%
-
-  .frame
-    display inline-block
-    position absolute
-    top 50%
-    left 50%
-    transform translate(-50%, -50%)
-
-  // THE MAGIC STARTS HERE
-  .lines
-    background:
-      linear-gradient(to bottom, $color-off-white 2px, transparent 2px) 0 0, // TOP LEFT TO TOP RIGHT
-      linear-gradient(to right, $color-off-white 2px, transparent 2px) 0 100%, // BOTTOM LEFT TO TOP LEFT
-      linear-gradient(to left, $color-off-white 2px, transparent 2px) 100% 0, // TOP RIGHT TO BOTTOM RIGHT
-      linear-gradient(to top, $color-off-white 2px, transparent 2px) 100% 100%; // BOTTOM RIGHT TO TOP RIGHT
-    background-repeat no-repeat
-    background-size 0px 0px
-    position absolute
-    top 0
-    right 0
-    bottom 0
-    left 0
-    transition background-size 0.2s $ease-in-out-quad
-
-  .angles
-    background:
-      linear-gradient(to right, $color-grey 2px, transparent 2px) 0 0, // TOP LEFT
-      linear-gradient(to bottom, $color-grey 2px, transparent 2px) 0 0, // TOP LEFT
-      linear-gradient(to left, $color-grey 2px, transparent 2px) 100% 0, // TOP RIGHT
-      linear-gradient(to bottom, $color-grey 2px, transparent 2px) 100% 0, // TOP RIGHT
-      linear-gradient(to left, $color-grey 2px, transparent 2px) 100% 100%, // BOTTOM RIGHT
-      linear-gradient(to top, $color-grey 2px, transparent 2px) 100% 100%, // BOTTOM RIGHT
-      linear-gradient(to right, $color-grey 2px, transparent 2px) 0 100%, // BOTTOM LEFT
-      linear-gradient(to top, $color-grey 2px, transparent 2px) 0 100%; // BOTTOM LEFT
-    background-repeat no-repeat
-    background-size 7px 7px
-    position absolute
-    top 0
-    right 0
-    bottom 0
-    left 0
-    opacity 0.48
-    transition background-size 0.2s $ease-in-out-quad
-
-  &:hover
-    .lines
-      background-size 100% 100%
-
-    .angles
-      background-size 14px 14px
-  // THE MAGIC ENDS HERE
-
-  article
-    padding 13px
-    display flex
-    justify-content center
-    align-items center
-    width 500px
-    height 400px
-    position relative
-    cursor pointer
-
-    &:before
-      content ''
-      background-color rgba(#FFFFFF, 0.08)
-      opacity 0.46
-      position absolute
-      top 13px
-      right 13px
-      bottom 13px
-      left 13px
-      transition all 0.2s $ease-in-out-quad
-
-    &:hover:before
-      top 21px
-      right 21px
-      bottom 21px
-      left 21px
-
-  p
-    font-family sans-serif
-    font-size 14px
-    text-transform uppercase
-    color #FFFFFF
-    position relative
+		background-color: rgb(0,0,110);
+		border: none;
+		color: rgb(215,165,32);
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
 	}
 	.location {
 		resize: none;
@@ -192,8 +51,8 @@ body
 	<link rel="icon" href="LOGO.png">
 	<meta charset="UTF-8">
     <meta name = "viewport" content = "width=device-width">
-	<DIV id="A0" style="display:block" class = "bb">
-		A funny little game by William Andriamihaja & Duncan Stoner<br />
+	<DIV id="A0" style="display:block">
+		<img src="LOGO.png" width="164.5" height="79">A funny little game by William Andriamihaja & Duncan Stoner<br />
 	</DIV>
 </head>
 
