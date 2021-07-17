@@ -276,7 +276,7 @@ const loop = function () {
 	})
 
 	// Ground element
-	context.strokeStyle = "#2E2532";
+	context.strokeStyle = "#000000";
 	context.lineWidth = 30;
 	context.beginPath();
 	context.moveTo(0, 585);
