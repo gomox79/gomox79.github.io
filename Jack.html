@@ -2,57 +2,6 @@
 
 <html>
 <STYLE type="text/css">
-	.box{
-		width: 164.5px; height: 30px;
-		background-color: rgba(255,0,0,0);
-		position: relative;
-		justify-content: center;
-		align-items: center;
-		box-shadow: 20px 20px 84px 0 rgba(255,0,0,0.75);
-	}
-	
-	.box:after, .box:before{
-		mix-blend-mode:multiply;
-		filter:none;
-		z-index: -1;
-		content:'';
-		width:calc(100% + (50px * 2));
-		height:calc(100% + (50px * 2));
-		position: absolute;
-		display: block;
-		animation: border 10s ease-in-out infinite;
-		transform:translateX(-50px) translateY(-50px);
-	}
-	
-	@keyframes border {
-		0%, 100% {
-			-webkit-clip-path: polygon(0 0, calc(100% - (33.3333333333px)) calc(0% + (33.3333333333px)), 100% 100%, calc(0% + (33.3333333333px)) calc(100% - (33.3333333333px)));
-			clip-path: polygon(0 0, calc(100% - (33.3333333333px)) calc(0% + (33.3333333333px)), 100% 100%, calc(0% + (33.3333333333px)) calc(100% - (33.3333333333px)));
-		}
-		50% {
-			-webkit-clip-path: polygon(calc(0% + (33.3333333333px)) calc(0% + (33.3333333333px)), 100% 0, calc(100% - (33.3333333333px)) calc(100% - (33.3333333333px)), 0 100%);
-			clip-path: polygon(calc(0% + (33.3333333333px)) calc(0% + (33.3333333333px)), 100% 0, calc(100% - (33.3333333333px)) calc(100% - (33.3333333333px)), 0 100%);
-		}
-	}
-	
-	.box:after{
-		animation-delay: -5s;
-		background-color: #93e1d8;
-		clip-path: polygon(0 0, calc(100% - (33.3333333333px)) calc(0% + (33.3333333333px)), 100% 100%, calc(0% + (33.3333333333px)) calc(100% - (33.3333333333px)));
-	}
-	
-	.box:before {
-		background-color: #AA4465;
-		clip-path: polygon(calc(0% + (33.3333333333px)) calc(0% + (33.3333333333px)), 100% 0, calc(100% - (33.3333333333px)) calc(100% - (33.3333333333px)), 0 100%);
-	}
-
-	.box:hover:after{
-		animation-delay: -0.1s;
-	}
-	
-	.box:hover:before, .box:hover:after {
-		animation-duration: 0.2s;
-	}
 	
 	.glow-on-hover-2 {
 		width: 110px;
@@ -169,23 +118,23 @@
 	
 	  .glow {
 		  resize: none;
-		background-color: rgba(255,0,0,0);
-  font-size: 80px;
-  color: #fff;
-  text-align: center;
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
-  -moz-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
-}
+		  background-color: rgba(255,0,0,0);
+		  font-size: 40px;
+		  color: #fff;
+		  text-align: center;
+		  -webkit-animation: glow 1s ease-in-out infinite alternate;
+		  -moz-animation: glow 1s ease-in-out infinite alternate;
+		  animation: glow 1s ease-in-out infinite alternate;
+	}
 
-@-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
-  }
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
-  }
-}
+	@-webkit-keyframes glow {
+		from {
+			text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+		}
+		to {
+			text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+		}
+	}
 	
 	  .location {
 		resize: none;
@@ -231,7 +180,7 @@
  
 	<body>
 		</br>
-	<h1 class ="box" id="A0" style="display:block"> 
+	<h1 id="A0" style="display:block"> 
 		<textarea id="loc" name="location" rows="1" class = "glow"></textarea>
 	</h1>
     <canvas id="canvas"><img id="pic" src="jack-face.png" width="2578" height="2578">
