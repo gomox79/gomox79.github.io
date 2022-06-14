@@ -51,7 +51,7 @@ const notsquare = {
 	jumping: false,
 	width: 125,
 	x: 1390,
-	xVelocity: -1,
+	xVelocity: 5,
 	y: 586 - 16 - 125,
 	yVelocity: 0
 };
@@ -224,6 +224,8 @@ const loop = function () {
 	
 	square.xVelocity *= 0.9;
 	square.yVelocity *= 0.9;
+	
+	notsquare.x -= notsquare.xVelocity;
   
 	// Collision
 	for (let j=0; j < obXCoors.length; j++) {
@@ -263,10 +265,10 @@ const loop = function () {
 		nextFrame();
 	}
 	
-	if (notsquare.x < -20) {
-		notsquare.x = 1400;
-	} else if (notsquare.x > 1400) {
-		notsquare.x = -20;
+	if (notsquare.x <= -20) {
+		notsquare.xVelocity *= -1;
+	} else if (notsquare.x >= 1400) {
+		notsquare.xVelocity *= -1;
 		//nextFrame();
 	}
   
@@ -279,12 +281,12 @@ const loop = function () {
 	context.fill();
 
 	// Obstacle generator
-	obXCoors.forEach((obXCoor) => {
-		context.beginPath();
-		context.drawImage(pic2, notsquare.x, notsquare.y, notsquare.width, notsquare.height); 
-		//context.closePath();
-		context.fill();
-	})
+	
+	context.beginPath();
+	context.drawImage(pic2, notsquare.x, notsquare.y, notsquare.width, notsquare.height); 
+	//context.closePath();
+	context.fill();
+	
 
 	// Ground element
 	context.strokeStyle = "#000000";
