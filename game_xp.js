@@ -288,7 +288,7 @@ const loop = function () {
 		context.fill();
 	})
 	
-	notsuqre.x = obXCoor;
+	notsquare.x = obXCoor;
 
 	// Ground element
 	context.strokeStyle = "#000000";
