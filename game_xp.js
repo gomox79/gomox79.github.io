@@ -50,9 +50,9 @@ const notsquare = {
 	height: 125,
 	jumping: false,
 	width: 125,
-	x: ObXact,
+	x: 1390,
 	xVelocity: -1,
-	y: 0,
+	y: 586 - 16 - 125,
 	yVelocity: 0
 };
 
@@ -262,6 +262,13 @@ const loop = function () {
 		square.x = -20;
 		nextFrame();
 	}
+	
+	if (notsquare.x < -20) {
+		notsquare.x = 1400;
+	} else if (notsquare.x > 1400) {
+		notsquare.x = -20;
+		//nextFrame();
+	}
   
 	// Frame backgd
 	context.drawImage(bg, 0, 0, 1400, 600); // x, y, width, height
@@ -273,12 +280,11 @@ const loop = function () {
 
 	// Obstacle generator
 	obXCoors.forEach((obXCoor) => {
-		obXact = obXCoor;
+		context.beginPath();
+		context.drawImage(pic2, notsquare.x, notsquare.y, notsquare.width, notsquare.height); 
+		//context.closePath();
+		context.fill();
 	})
-	
-	context.beginPath();
-	context.drawImage(pic2, notsquare.x, notsquare.y, notsquare.width, notsquare.height);
-	context.fill();
 
 	// Ground element
 	context.strokeStyle = "#000000";
