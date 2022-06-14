@@ -217,7 +217,7 @@ const loop = function () {
 		square.jumping = true;
 	}
   
-	square.xVelocity = (8 + (frameCount/2))*kill;
+	square.xVelocity = (4 + (frameCount/2))*kill;
 	square.yVelocity += 1.5;
 	
 	square.x += square.xVelocity;
@@ -225,6 +225,11 @@ const loop = function () {
 	
 	square.xVelocity *= 0.9;
 	square.yVelocity *= 0.9;
+	
+	notsquare.x += notsquare.xVelocity;
+	
+	notsquare.xVelocity *= 0.9;
+	notsquare.yVelocity *= 0.9;
   
 	// Collision
 	obCol = Math.abs(notsquare.x - notsquare.x);
