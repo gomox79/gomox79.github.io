@@ -62,6 +62,7 @@ const nextFrame = () => {
 	
 	for (let i = 0; i < obCount; i++) {
 		obXCoor = Math.floor(Math.random() * (1165 - 140 + 1) + 140);
+		notsquare.x = obXCoor;
 		obXCoors.push(obXCoor);
 	}
 
@@ -228,22 +229,26 @@ const loop = function () {
 	// Collision
 	obCol = Math.abs(notsquare.x - notsquare.x);
 	
-	if (obCol < 10 && square.jumping == false) {
-		oof.play();
-		oof.volume = 1.0;
-		square.x = -20;
-		square.y -= 586 - 16 - 32;
-		demerits += 50;
-		lvlcount();
+	
+		obCol = Math.abs(notsquare.x - square.x);
 		
-		if (parseInt(dcount.value) > 100) {
+		if (obCol < 10 && square.jumping == false) {
+			oof.play();
+			oof.volume = 1.0;
+			square.x = -20;
+			square.y -= 586 - 16 - 32;
+			demerits += 50;
+			token += 1;
+			dcount.value = parseInt(dcount.value) + 10*token;
+			lvlcount();
+			if (parseInt(dcount.value) > 100) {
 				over();
 			} else {
 				document.getElementById('field_0').style.display='block' ;
 				setTimeout(function(){
 					document.getElementById('field_0').style.display='none' ;}, 1000);
 			}
-	}
+		};
 
 	// Solid floor
 	if (square.y > 586 - 16 - 125) {
