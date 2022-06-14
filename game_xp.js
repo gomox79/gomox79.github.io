@@ -1,4 +1,4 @@
-// Canvas element
+// Canvas
 var canvas = document.getElementById("canvas");
 const context = document.querySelector("canvas").getContext("2d");
 context.canvas.height = 600;
@@ -6,8 +6,9 @@ context.canvas.width = 1400;
 
 // Initial conditions
 let frameCount = 1;
-let obCount = frameCount;
+let obCOunt = frameCount;
 const obXCoors = [];
+var obXact; // SUS!!!
 var obCol = [];
 
 // Variables
@@ -16,21 +17,14 @@ var token = 0;
 var kill = 1;
 var paused = false;
 
-// Scret codes
-cheat = localStorage.getItem('cheat');
-
-// Variable text / images
+// Text & Images
 var dcount = document.getElementById("dem"); dcount.value = 0;
 var lvl = document.getElementById("off"); lvl.value = "Model Mid";
 var loc = document.getElementById("loc"); loc.value = "Rotunda";
-var bg=document.getElementById("bg1");
-var pic = [];
-var pic2 = [];
+var bg = document.getElementById("bg1");
+var pic = []; pic = document.getElementById("pic");
+var pic2 = []; pic2 = document.getElementById("danger");
 
-// Player / obstacle
-pic=document.getElementById("pic");
-pic2=document.getElementById("danger");
-	
 // Audio
 var music = document.getElementById("myAudio");
 var sound = document.getElementById("yourAudio");
@@ -38,6 +32,7 @@ var oof = document.getElementById("hisAudio");
 var boing = document.getElementById("herAudio");
 var yay = document.getElementById("itsAudio");
 
+// Player object
 const square = {
 
   height: 125,
@@ -49,7 +44,19 @@ const square = {
   yVelocity: 0
 };
 
-// Obstacles
+// Obstacle object
+const notsquare = {
+	
+	height: 125,
+	jumping: false,
+	width: 125,
+	x: ObXact,
+	xVelocity: -1,
+	y: 0,
+	yVelocity: 0
+};
+
+// Obstacle position generator
 const nextFrame = () => {
 	frameCount++;
 	
@@ -154,7 +161,7 @@ function full() {
 	canvas.requestFullscreen();
 }
 
-// Main script
+// Loop method
 const loop = function () {
 	
 	if (frameCount == 1) {
@@ -170,36 +177,36 @@ const loop = function () {
 	
 	switch (frameCount) {
 		case 1:
-		bg = document.getElementById("bg1");
-		loc.value = "The Rotunda";
+			bg = document.getElementById("bg1");
+			loc.value = "ACME";
 		break;
 		case 2:
-		bg = document.getElementById("bg2");
-		loc.value = "T-court";
+			bg = document.getElementById("bg2");
+			loc.value = "Fed House";
 		break;
 		case 3:
-		bg = document.getElementById("bg3");
-		loc.value = "Stribling";
+			bg = document.getElementById("bg3");
+			loc.value = "Dillo's";
 		break;	
 		case 4:
-		bg = document.getElementById("bg4");
-		loc.value = "Chapel";
+			bg = document.getElementById("bg4");
+			loc.value = "Gate 1";
 		break;
 		case 5:
-		bg = document.getElementById("bg5");
-		loc.value = "Mahan";
+			bg = document.getElementById("bg5");
+			loc.value = "Red Beach";
 		break;
 		case 6:
-		bg = document.getElementById("bg6");
-		loc.value = "Hopper";
+			bg = document.getElementById("bg6");
+			loc.value = "4-0";
 		break;
 		case 7:
-		bg = document.getElementById("bg7");
-		loc.value = "Alumni";
+			bg = document.getElementById("bg7");
+			loc.value = "4-4 P-Way";
 		break;
 		default:
-		bg = document.getElementById("bg8");
-		loc.value = "Hospital Point";
+			bg = document.getElementById("bg8");
+			loc.value = "Wardroom";
 		break;
 	}
 
@@ -265,15 +272,13 @@ const loop = function () {
 	context.fill();
 
 	// Obstacle generator
-	const height = 125;
-	const width = 125;
-
 	obXCoors.forEach((obXCoor) => {
-		context.beginPath();
-		context.drawImage(pic2, obXCoor, 586 - 16 - 125, width, height); 
-		context.closePath();
-		context.fill();
+		obXact = obXCoor;
 	})
+	
+	context.beginPath();
+	context.drawImage(pic2, notsquare.x, notsquare.y, notsquare.width, notsquare.height);
+	context.fill();
 
 	// Ground element
 	context.strokeStyle = "#000000";
