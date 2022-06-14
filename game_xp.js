@@ -209,7 +209,7 @@ const loop = function () {
 		square.jumping = true;
 	}
   
-	square.xVelocity = (4 + (frameCount/2))*kill;
+	square.xVelocity = (8 + (frameCount/2))*kill;
 	square.yVelocity += 1.5;
 	
 	square.x += square.xVelocity;
@@ -222,7 +222,7 @@ const loop = function () {
 	for (let j=0; j < obXCoors.length; j++) {
 		obCol[j] = Math.abs(obXCoors[j] - square.x);
 		
-		if (obCol[j] < 10 && square.jumping == false) {
+		if (obCol[j] < 15 && square.jumping == false) {
 			oof.play();
 			oof.volume = 1.0;
 			square.x = -20;
