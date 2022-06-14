@@ -280,11 +280,6 @@ const loop = function () {
 	// Frame backgd
 	context.drawImage(bg, 0, 0, 1400, 600); // x, y, width, height
 
-	// Player element
-	context.beginPath();
-	context.drawImage(pic, square.x, square.y, square.width, square.height);
-	context.fill();
-
 	// Obstacle generator
 	obXCoors.forEach((obXCoor) => {
 		context.beginPath();
@@ -292,6 +287,11 @@ const loop = function () {
 		//context.closePath();
 		context.fill();
 	})
+	
+	// Player element
+	context.beginPath();
+	context.drawImage(pic, square.x, square.y, square.width, square.height);
+	context.fill();
 
 	// Ground element
 	context.strokeStyle = "#000000";
