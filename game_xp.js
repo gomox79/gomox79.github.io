@@ -51,7 +51,7 @@ const notsquare = {
 	jumping: false,
 	width: 125,
 	x: 1390,
-	xVelocity: 5,
+	xVelocity: -1,
 	y: 586 - 16 - 125,
 	yVelocity: 0
 };
@@ -224,31 +224,26 @@ const loop = function () {
 	
 	square.xVelocity *= 0.9;
 	square.yVelocity *= 0.9;
-	
-	notsquare.x -= notsquare.xVelocity;
   
 	// Collision
-	for (let j=0; j < obXCoors.length; j++) {
-		obCol[j] = Math.abs(obXCoors[j] - square.x);
+	obCol = Math.abs(notsquare.x - notsquare.x);
+	
+	if (obCol < 10 && square.jumping == false) {
+		oof.play();
+		oof.volume = 1.0;
+		square.x = -20;
+		square.y -= 586 - 16 - 32;
+		demerits += 50;
+		lvlcount();
 		
-		if (obCol[j] < 15 && square.jumping == false) {
-			oof.play();
-			oof.volume = 1.0;
-			square.x = -20;
-			square.y -= 586 - 16 - 32;
-			demerits += 50;
-			token += 1;
-			dcount.value = parseInt(dcount.value) + 10*token;
-			lvlcount();
-			if (parseInt(dcount.value) > 100) {
+		if (parseInt(dcount.value) > 100) {
 				over();
 			} else {
 				document.getElementById('field_0').style.display='block' ;
 				setTimeout(function(){
 					document.getElementById('field_0').style.display='none' ;}, 1000);
 			}
-		}
-	};
+	}
 
 	// Solid floor
 	if (square.y > 586 - 16 - 125) {
@@ -265,10 +260,10 @@ const loop = function () {
 		nextFrame();
 	}
 	
-	if (notsquare.x <= -20) {
-		notsquare.xVelocity *= -1;
-	} else if (notsquare.x >= 1400) {
-		notsquare.xVelocity *= -1;
+	if (notsquare.x < -20) {
+		notsquare.x = 1400;
+	} else if (notsquare.x > 1400) {
+		notsquare.x = -20;
 		//nextFrame();
 	}
   
@@ -281,12 +276,12 @@ const loop = function () {
 	context.fill();
 
 	// Obstacle generator
-	
-	context.beginPath();
-	context.drawImage(pic2, notsquare.x, notsquare.y, notsquare.width, notsquare.height); 
-	//context.closePath();
-	context.fill();
-	
+	obXCoors.forEach((obXCoor) => {
+		context.beginPath();
+		context.drawImage(pic2, notsquare.x, notsquare.y, notsquare.width, notsquare.height); 
+		//context.closePath();
+		context.fill();
+	})
 
 	// Ground element
 	context.strokeStyle = "#000000";
