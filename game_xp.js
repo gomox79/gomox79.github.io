@@ -9,7 +9,7 @@ let frameCount = 1;
 let obCOunt = frameCount;
 const obXCoors = [];
 var obXact; // SUS!!!
-var obCol;
+var obCol = [];
 
 // Variables
 var demerits = 0;
@@ -217,7 +217,7 @@ const loop = function () {
 		square.jumping = true;
 	}
   
-	square.xVelocity = (4 + (frameCount/2))*kill;
+	square.xVelocity = (8 + (frameCount/2))*kill;
 	square.yVelocity += 1.5;
 	
 	square.x += square.xVelocity;
@@ -225,14 +225,9 @@ const loop = function () {
 	
 	square.xVelocity *= 0.9;
 	square.yVelocity *= 0.9;
-	
-	notsquare.x += notsquare.xVelocity;
-	
-	notsquare.xVelocity *= 0.9;
-	notsquare.yVelocity *= 0.9;
   
 	// Collision
-	obCol = Math.abs(notsquare.x - notsquare.x);
+	obCol = Math.abs(notsquare.x - square.x);
 	
 	
 		obCol = Math.abs(notsquare.x - square.x);
@@ -280,6 +275,11 @@ const loop = function () {
 	// Frame backgd
 	context.drawImage(bg, 0, 0, 1400, 600); // x, y, width, height
 
+	// Player element
+	context.beginPath();
+	context.drawImage(pic, square.x, square.y, square.width, square.height);
+	context.fill();
+
 	// Obstacle generator
 	obXCoors.forEach((obXCoor) => {
 		context.beginPath();
@@ -288,10 +288,7 @@ const loop = function () {
 		context.fill();
 	})
 	
-	// Player element
-	context.beginPath();
-	context.drawImage(pic, square.x, square.y, square.width, square.height);
-	context.fill();
+	notsuqre.x = obXCoor;
 
 	// Ground element
 	context.strokeStyle = "#000000";
