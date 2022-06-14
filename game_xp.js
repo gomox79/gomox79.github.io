@@ -9,7 +9,7 @@ let frameCount = 1;
 let obCOunt = frameCount;
 const obXCoors = [];
 var obXact; // SUS!!!
-var obCol = [];
+var obCol;
 
 // Variables
 var demerits = 0;
