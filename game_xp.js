@@ -225,7 +225,12 @@ const loop = function () {
 	square.xVelocity = (4 + (frameCount/2))*kill;
 	square.yVelocity += 1.5;
 	
-	notsquare.xVelocity *= kill*frameCount**(1/frameCount);
+	if (notsquare.xVelocity > 0) {
+		notsquare.xVelocity = (4 + (frameCount/2))*kill;
+	} else if (notsquare.xVelocity > 0) {
+		notsquare.xVelocity = -1*(4 + (frameCount/2))*kill;
+	}
+	
 	notsquare.yVelocity += 1.5;
 	
 	square.x += square.xVelocity;
