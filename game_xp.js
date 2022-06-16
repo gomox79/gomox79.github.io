@@ -226,9 +226,9 @@ const loop = function () {
 	square.yVelocity += 1.5;
 	
 	if (notsquare.xVelocity > 0) {
-		notsquare.xVelocity = (4 + (frameCount/2))*kill;
+		notsquare.xVelocity = (4 + (token + 1))*kill;
 	} else if (notsquare.xVelocity < 0) {
-		notsquare.xVelocity = -1*(4 + (frameCount/2))*kill;
+		notsquare.xVelocity = -1*(4 + (token + 1))*kill;
 	}
 	
 	notsquare.yVelocity += 1.5;
