@@ -57,7 +57,7 @@ const notsquare = {
 	width: 125,
 	x: obXact,
 	xVelocity: -1,
-	y: 0,
+	y: 586 - 16 - 125,
 	yVelocity: 0
 };
 
