@@ -180,35 +180,35 @@ const loop = function () {
 	switch (frameCount) {
 		case 1:
 		bg = document.getElementById("bg1");
-		loc.value = "The Rotunda";
+		loc.value = "ACME";
 		break;
 		case 2:
 		bg = document.getElementById("bg2");
-		loc.value = "T-court";
+		loc.value = "Fed House";
 		break;
 		case 3:
 		bg = document.getElementById("bg3");
-		loc.value = "Stribling";
+		loc.value = "Dillo's";
 		break;	
 		case 4:
 		bg = document.getElementById("bg4");
-		loc.value = "Chapel";
+		loc.value = "Gate 1";
 		break;
 		case 5:
 		bg = document.getElementById("bg5");
-		loc.value = "Mahan";
+		loc.value = "Red Beach";
 		break;
 		case 6:
 		bg = document.getElementById("bg6");
-		loc.value = "Hopper";
+		loc.value = "4-0";
 		break;
 		case 7:
 		bg = document.getElementById("bg7");
-		loc.value = "Alumni";
+		loc.value = "4-4 P-Way";
 		break;
 		default:
 		bg = document.getElementById("bg8");
-		loc.value = "Hospital Point";
+		loc.value = "Wardroom";
 		break;
 	}
 
