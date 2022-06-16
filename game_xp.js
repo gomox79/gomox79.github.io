@@ -7,10 +7,8 @@ context.canvas.width = 1400;
 // Initial conditions
 let frameCount = 1;
 let obCOunt = frameCount;
-const obXCoors = [1390];
-var obXact; // SUS!!!
+const obXCoors = [];
 var obCol = [];
-//var obXact = 1390;
 
 // Variables
 var demerits = 0;
@@ -285,11 +283,9 @@ const loop = function () {
 	obXCoors.forEach((obXCoor) => {
 		context.beginPath();
 		context.drawImage(pic2, notsquare.x, notsquare.y, notsquare.width, notsquare.height); 
-		//context.closePath();
+		context.closePath();
 		context.fill();
 	})
-	
-	notsquare.x = obXCoor;
 
 	// Ground element
 	context.strokeStyle = "#000000";
