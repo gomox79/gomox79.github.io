@@ -225,13 +225,18 @@ const loop = function () {
 	square.xVelocity = (4 + (frameCount/2))*kill;
 	square.yVelocity += 1.5;
 	
+	notsquare.yVelocity += 1.5;
+	
 	square.x += square.xVelocity;
 	square.y += square.yVelocity;
 	
 	square.xVelocity *= 0.9;
 	square.yVelocity *= 0.9;
 	
+	notsquare.yVelocity *= 0.9;
+	
 	notsquare.x += notsquare.xVelocity;
+	notsquare.y += notsquare.yVelocity;
   
 	// Collision
 	/* for (let j=0; j < obXCoors.length; j++) {
@@ -282,6 +287,12 @@ const loop = function () {
 		square.jumping = false;
 		square.y = 586 - 16 - 125;
 		square.yVelocity = 0;
+	}
+	
+	if (notsquare.y > 586 - 16 - 125) {
+		notsquare.jumping = false;
+		notsquare.y = 586 - 16 - 125;
+		notsquare.yVelocity = 0;
 	}
 
 	// Continuous screen
