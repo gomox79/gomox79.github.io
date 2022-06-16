@@ -230,6 +230,8 @@ const loop = function () {
 	
 	square.xVelocity *= 0.9;
 	square.yVelocity *= 0.9;
+	
+	notsquare.x += notsquare.xVelocity;
   
 	// Collision
 	/* for (let j=0; j < obXCoors.length; j++) {
