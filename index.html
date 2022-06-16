@@ -299,7 +299,7 @@
 	var x = document.getElementById("unlock");
 	var y = document.getElementById("cheat");
 	x.style.display = 'none';
-	y.value = 'Write your code(s) here.';
+	y.value = 'Write code here';
 	var z = "Jack.html";
 	
 		function start() {
@@ -319,6 +319,9 @@
 			if (y.value == 'Reverse') {
 				z = "Axle.html";
 				y.value = 'element unlocked: reverse';
+			} else if (y.value == 'Zeef') {
+				z = "Zeef.html";
+				y.value = 'element unlocked: zeef';
 			} else {
 				localStorage.clear();
 				localStorage.setItem('cheat', 0);
