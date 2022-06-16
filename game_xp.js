@@ -53,7 +53,7 @@ const notsquare = {
 	height: 125,
 	jumping: false,
 	width: 125,
-	x: obXact,
+	x: 1390,
 	xVelocity: -1,
 	y: 586 - 16 - 125,
 	yVelocity: 0
@@ -67,8 +67,6 @@ const nextFrame = () => {
 		obXCoor = Math.floor(Math.random() * (1165 - 140 + 1) + 140);
 		obXCoors.push(obXCoor);
 	}*/
-	
-	obXact = Math.floor(Math.random() * (1165 - 140 + 1) + 140);
 }
 
 // Control
@@ -237,7 +235,7 @@ const loop = function () {
 	square.xVelocity *= 0.9;
 	square.yVelocity *= 0.9;
 	
-	//notsquare.yVelocity *= 0.9;
+	notsquare.yVelocity *= 0.9;
 	
 	notsquare.x += notsquare.xVelocity;
 	notsquare.y += notsquare.yVelocity;
