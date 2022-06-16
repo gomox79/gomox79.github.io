@@ -1,4 +1,4 @@
-// Canvas
+// Canvas element
 var canvas = document.getElementById("canvas");
 const context = document.querySelector("canvas").getContext("2d");
 context.canvas.height = 600;
@@ -6,9 +6,10 @@ context.canvas.width = 1400;
 
 // Initial conditions
 let frameCount = 1;
-let obCOunt = frameCount;
-const obXCoors = [];
-var obCol = [];
+let obCount = frameCount;
+// const obXCoors = [];
+var obXact = 1390;
+var obCol = 100;
 
 // Variables
 var demerits = 0;
@@ -16,14 +17,21 @@ var token = 0;
 var kill = 1;
 var paused = false;
 
-// Text & Images
+// Scret codes
+cheat = localStorage.getItem('cheat');
+
+// Variable text / images
 var dcount = document.getElementById("dem"); dcount.value = 0;
 var lvl = document.getElementById("off"); lvl.value = "Model Mid";
 var loc = document.getElementById("loc"); loc.value = "Rotunda";
-var bg = document.getElementById("bg1");
-var pic = []; pic = document.getElementById("pic");
-var pic2 = []; pic2 = document.getElementById("danger");
+var bg=document.getElementById("bg1");
+var pic = [];
+var pic2 = [];
 
+// Player / obstacle
+pic=document.getElementById("pic");
+pic2=document.getElementById("danger");
+	
 // Audio
 var music = document.getElementById("myAudio");
 var sound = document.getElementById("yourAudio");
@@ -31,7 +39,6 @@ var oof = document.getElementById("hisAudio");
 var boing = document.getElementById("herAudio");
 var yay = document.getElementById("itsAudio");
 
-// Player object
 const square = {
 
   height: 125,
@@ -43,28 +50,27 @@ const square = {
   yVelocity: 0
 };
 
-// Obstacle object
 const notsquare = {
 	
 	height: 125,
 	jumping: false,
 	width: 125,
-	x: obXCoor,
+	x: obXact,
 	xVelocity: -1,
-	y: 586 - 16 - 125,
+	y: 0,
 	yVelocity: 0
 };
 
-// Obstacle position generator
+// Obstacles
 const nextFrame = () => {
 	frameCount++;
 	
-	for (let i = 0; i < obCount; i++) {
+	/*for (let i = 0; i < obCount; i++) {
 		obXCoor = Math.floor(Math.random() * (1165 - 140 + 1) + 140);
-		notsquare.x = obXCoor;
 		obXCoors.push(obXCoor);
-	}
-
+	}*/
+	
+	obXact = Math.floor(Math.random() * (1165 - 140 + 1) + 140);
 }
 
 // Control
@@ -161,7 +167,7 @@ function full() {
 	canvas.requestFullscreen();
 }
 
-// Loop method
+// Main script
 const loop = function () {
 	
 	if (frameCount == 1) {
@@ -177,36 +183,36 @@ const loop = function () {
 	
 	switch (frameCount) {
 		case 1:
-			bg = document.getElementById("bg1");
-			loc.value = "ACME";
+		bg = document.getElementById("bg1");
+		loc.value = "The Rotunda";
 		break;
 		case 2:
-			bg = document.getElementById("bg2");
-			loc.value = "Fed House";
+		bg = document.getElementById("bg2");
+		loc.value = "T-court";
 		break;
 		case 3:
-			bg = document.getElementById("bg3");
-			loc.value = "Dillo's";
+		bg = document.getElementById("bg3");
+		loc.value = "Stribling";
 		break;	
 		case 4:
-			bg = document.getElementById("bg4");
-			loc.value = "Gate 1";
+		bg = document.getElementById("bg4");
+		loc.value = "Chapel";
 		break;
 		case 5:
-			bg = document.getElementById("bg5");
-			loc.value = "Red Beach";
+		bg = document.getElementById("bg5");
+		loc.value = "Mahan";
 		break;
 		case 6:
-			bg = document.getElementById("bg6");
-			loc.value = "4-0";
+		bg = document.getElementById("bg6");
+		loc.value = "Hopper";
 		break;
 		case 7:
-			bg = document.getElementById("bg7");
-			loc.value = "4-4 P-Way";
+		bg = document.getElementById("bg7");
+		loc.value = "Alumni";
 		break;
 		default:
-			bg = document.getElementById("bg8");
-			loc.value = "Wardroom";
+		bg = document.getElementById("bg8");
+		loc.value = "Hospital Point";
 		break;
 	}
 
@@ -216,7 +222,7 @@ const loop = function () {
 		square.jumping = true;
 	}
   
-	square.xVelocity = (8 + (frameCount/2))*kill;
+	square.xVelocity = (4 + (frameCount/2))*kill;
 	square.yVelocity += 1.5;
 	
 	square.x += square.xVelocity;
@@ -226,12 +232,10 @@ const loop = function () {
 	square.yVelocity *= 0.9;
   
 	// Collision
-	obCol = Math.abs(notsquare.x - square.x);
-	
-	
-		obCol = Math.abs(notsquare.x - square.x);
+	/* for (let j=0; j < obXCoors.length; j++) {
+		obCol[j] = Math.abs(obXCoors[j] - square.x);
 		
-		if (obCol < 10 && square.jumping == false) {
+		if (obCol[j] < 10 && square.jumping == false) {
 			oof.play();
 			oof.volume = 1.0;
 			square.x = -20;
@@ -247,7 +251,29 @@ const loop = function () {
 				setTimeout(function(){
 					document.getElementById('field_0').style.display='none' ;}, 1000);
 			}
-		};
+		}
+	};*/
+	
+	// Collision
+	obCol = Math.abs(notsquare.x - square.x);
+	
+	if (obCol < 10 && square.jumping == false) {
+		oof.play();
+		oof.volume = 1.0;
+		square.x = -20;
+		square.y -= 586 - 16 - 32;
+		demerits += 50;
+		token += 1;
+		dcount.value = parseInt(dcount.value) + 10*token;
+		lvlcount();
+		if (parseInt(dcount.value) > 100) {
+			over();
+		} else {
+			document.getElementById('field_0').style.display='block' ;
+			setTimeout(function(){
+				document.getElementById('field_0').style.display='none' ;}, 1000);
+		}
+	}
 
 	// Solid floor
 	if (square.y > 586 - 16 - 125) {
@@ -264,11 +290,11 @@ const loop = function () {
 		nextFrame();
 	}
 	
+	// Obstacle roaming
 	if (notsquare.x < -20) {
-		notsquare.x = 1400;
+		notsquare.xVelocity *= -1;
 	} else if (notsquare.x > 1400) {
-		notsquare.x = -20;
-		//nextFrame();
+		notsquare.xVelocity *= -1;
 	}
   
 	// Frame backgd
@@ -280,12 +306,9 @@ const loop = function () {
 	context.fill();
 
 	// Obstacle generator
-	obXCoors.forEach((obXCoor) => {
-		context.beginPath();
-		context.drawImage(pic2, notsquare.x, notsquare.y, notsquare.width, notsquare.height); 
-		context.closePath();
-		context.fill();
-	})
+	context.beginPath();
+	context.drawImage(pic2, notsquare.x, notsquare.y, notsquare.width, notsquare.height);
+	context.fill();
 
 	// Ground element
 	context.strokeStyle = "#000000";
