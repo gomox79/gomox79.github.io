@@ -7,9 +7,10 @@ context.canvas.width = 1400;
 // Initial conditions
 let frameCount = 1;
 let obCOunt = frameCount;
-const obXCoors = [];
+const obXCoors = [1390];
 var obXact; // SUS!!!
 var obCol = [];
+//var obXact = 1390;
 
 // Variables
 var demerits = 0;
@@ -50,7 +51,7 @@ const notsquare = {
 	height: 125,
 	jumping: false,
 	width: 125,
-	x: 1390,
+	x: obXCoor,
 	xVelocity: -1,
 	y: 586 - 16 - 125,
 	yVelocity: 0
