@@ -227,7 +227,7 @@ const loop = function () {
 	
 	if (notsquare.xVelocity > 0) {
 		notsquare.xVelocity = (4 + (frameCount/2))*kill;
-	} else if (notsquare.xVelocity > 0) {
+	} else if (notsquare.xVelocity < 0) {
 		notsquare.xVelocity = -1*(4 + (frameCount/2))*kill;
 	}
 	
@@ -310,9 +310,7 @@ const loop = function () {
 	}
 	
 	// Obstacle roaming
-	if (notsquare.x < -20) {
-		notsquare.xVelocity *= -1;
-	} else if (notsquare.x > 1400) {
+	if (notsquare.x < -20 || notsquare.x > 1400) {
 		notsquare.xVelocity *= -1;
 	}
   
