@@ -7,8 +7,6 @@ context.canvas.width = 1400;
 // Initial conditions
 let frameCount = 1;
 let obCount = frameCount;
-// const obXCoors = [];
-var obXact = 1390;
 var obCol = 100;
 
 // Variables
@@ -227,7 +225,7 @@ const loop = function () {
 	
 	if (notsquare.xVelocity > 0) {
 		notsquare.xVelocity = (4 + (token + 1))*kill;
-	} else if (notsquare.xVelocity < 0) {
+	} else {
 		notsquare.xVelocity = -1*(4 + (token + 1))*kill;
 	}
 	
@@ -239,7 +237,7 @@ const loop = function () {
 	square.xVelocity *= 0.9;
 	square.yVelocity *= 0.9;
 	
-	notsquare.yVelocity *= 0.9;
+	//notsquare.yVelocity *= 0.9;
 	
 	notsquare.x += notsquare.xVelocity;
 	notsquare.y += notsquare.yVelocity;
