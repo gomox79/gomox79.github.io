@@ -20,8 +20,8 @@ cheat = localStorage.getItem('cheat');
 
 // Variable text / images
 var dcount = document.getElementById("dem"); dcount.value = 0;
-var lvl = document.getElementById("off"); lvl.value = "Model Mid";
-var loc = document.getElementById("loc"); loc.value = "Rotunda";
+var lvl = document.getElementById("off"); lvl.value = "English";
+var loc = document.getElementById("loc"); loc.value = "ACME";
 var bg=document.getElementById("bg1");
 var pic = [];
 var pic2 = [];
@@ -137,19 +137,19 @@ function success() {
 function lvlcount() {
 	switch (token) {
 		case 1:
-		lvl.value = 'Neg Form 1';
+		lvl.value = 'Drunk English';
 		break;
 		case 2:
-		lvl.value = 'Minor';
+		lvl.value = 'Irish';
 		break;
 		case 3:
-		lvl.value = 'Major';
+		lvl.value = 'Spanish';
 		break;
 		case 4:
-		lvl.value = '6K';
+		lvl.value = 'Polish';
 		break;
 		case 5:
-		lvl.value = 'Separated';
+		lvl.value = 'Gibberish';
 		break;
 		default:
 		lvl.value = 'Model Mid';
