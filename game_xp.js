@@ -67,10 +67,10 @@ const notsquare = {
 const nextFrame = () => {
 	frameCount++;
 	
-	/*for (let i = 0; i < obCount; i++) {
+	for (let i = 0; i < obCount; i++) {
 		obXCoor = Math.floor(Math.random() * (1165 - 140 + 1) + 140);
 		obXCoors.push(obXCoor);
-	}*/
+	}
 }
 
 // Control
