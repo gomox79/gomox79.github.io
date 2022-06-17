@@ -8,6 +8,8 @@ context.canvas.width = 1400;
 let frameCount = 1;
 let obCount = frameCount;
 var obCol = 100;
+const obXCoors = [];
+var obCols = [];
 
 // Variables
 var demerits = 0;
@@ -25,10 +27,12 @@ var loc = document.getElementById("loc"); loc.value = "ACME";
 var bg=document.getElementById("bg1");
 var pic = [];
 var pic2 = [];
+var pic3 = [];
 
 // Player / obstacle
 pic=document.getElementById("pic");
 pic2=document.getElementById("danger");
+pic3=document.getElementById("vodka");
 	
 // Audio
 var music = document.getElementById("myAudio");
@@ -241,10 +245,10 @@ const loop = function () {
 	notsquare.y += notsquare.yVelocity;
   
 	// Collision
-	/* for (let j=0; j < obXCoors.length; j++) {
-		obCol[j] = Math.abs(obXCoors[j] - square.x);
+	for (let j=0; j < obXCoors.length; j++) {
+		obCols[j] = Math.abs(obXCoors[j] - square.x);
 		
-		if (obCol[j] < 10 && square.jumping == false) {
+		if (obCols[j] < 10 && square.jumping == false) {
 			oof.play();
 			oof.volume = 1.0;
 			square.x = -20;
@@ -261,7 +265,7 @@ const loop = function () {
 					document.getElementById('field_0').style.display='none' ;}, 1000);
 			}
 		}
-	};*/
+	};
 	
 	// Collision
 	obCol = Math.abs(notsquare.x - square.x);
@@ -322,6 +326,17 @@ const loop = function () {
 	context.beginPath();
 	context.drawImage(pic2, notsquare.x, notsquare.y, notsquare.width, notsquare.height);
 	context.fill();
+	
+	// Obstacle generator
+	const height = 125;
+	const width = 125;
+
+	obXCoors.forEach((obXCoor) => {
+		context.beginPath();
+		context.drawImage(pic3, obXCoor, 586 - 16 - 125, width, height); 
+		context.closePath();
+		context.fill();
+	})
 
 	// Ground element
 	context.strokeStyle = "#000000";
