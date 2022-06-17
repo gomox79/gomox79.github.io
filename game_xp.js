@@ -9,7 +9,7 @@ let frameCount = 1;
 let obCount = frameCount;
 var obCol = 100;
 const obXCoors = [];
-var obCols = [];
+var Cols = [];
 
 // Variables
 var demerits = 0;
@@ -141,7 +141,7 @@ function success() {
 function lvlcount() {
 	switch (token) {
 		case 1:
-		lvl.value = 'Drunk English';
+		lvl.value = 'Sloppy';
 		break;
 		case 2:
 		lvl.value = 'Irish';
@@ -246,9 +246,9 @@ const loop = function () {
   
 	// Collision
 	for (let j=0; j < obXCoors.length; j++) {
-		obCols[j] = Math.abs(obXCoors[j] - square.x);
+		Cols[j] = Math.abs(obXCoors[j] - square.x);
 		
-		if (obCols[j] < 10 && square.jumping == false) {
+		if (Cols[j] < 10 && square.jumping == false) {
 			oof.play();
 			oof.volume = 1.0;
 			square.x = -20;
@@ -328,12 +328,10 @@ const loop = function () {
 	context.fill();
 	
 	// Obstacle generator
-	const height = 125;
-	const width = 125;
 
 	obXCoors.forEach((obXCoor) => {
 		context.beginPath();
-		context.drawImage(pic3, obXCoor, 586 - 16 - 125, width, height); 
+		context.drawImage(pic3, obXCoor, 586 - 16 - 125, 125, 125); 
 		context.closePath();
 		context.fill();
 	})
