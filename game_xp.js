@@ -310,7 +310,7 @@ const loop = function () {
 	}
 	
 	// Obstacle roaming
-	if (notsquare.x < -20 || notsquare.x > 1390) {
+	if (notsquare.x < -20 || notsquare.x > 1300) {
 		notsquare.xVelocity *= -1;
 	}
   
