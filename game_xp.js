@@ -248,7 +248,7 @@ const loop = function () {
 	for (let j=0; j < obXCoors.length; j++) {
 		Cols[j] = Math.abs(obXCoors[j] - square.x);
 		
-		if (Cols[j] < 20 && square.jumping == false) {
+		if (Cols[j] < 30 && square.jumping == false) {
 			oof.play();
 			oof.volume = 1.0;
 			square.x = -20;
