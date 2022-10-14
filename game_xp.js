@@ -252,7 +252,7 @@ const loop = function () {
 	for (let j=0; j < obXCoors.length; j++) {
 		Cols[j] = Math.abs(obXCoors[j] - square.x);
 		
-		if (Cols[j] <= 30 && square.y < 586 - (1 + perjum)*16) { //square.jumping == false
+		if (Cols[j] < 30 && square.y == 586 - 16 - 125) { //square.jumping == false
 			oof.play();
 			oof.volume = 1.0;
 			square.x = -20;
@@ -274,7 +274,7 @@ const loop = function () {
 	// Collision
 	obCol = Math.abs(notsquare.x - square.x);
 	
-	if (obCol < 30 && square.y < 586 - (1 + perjum)*16) { //square.jumping == false
+	if (obCol < 30 && square.y == 586 - 16 - 125) { //square.jumping == false
 		oof.play();
 		oof.volume = 1.0;
 		square.x = -20;
@@ -294,7 +294,7 @@ const loop = function () {
 
 	// Solid floor
 	if (square.y > 586 - 16 - 125) {
-		square.jumping = false;
+		//square.jumping = false;
 		square.y = 586 - 16 - 125;
 		square.yVelocity = 0;
 	}
