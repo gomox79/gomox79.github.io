@@ -172,6 +172,7 @@ function full() {
 
 // Main script
 const loop = function () {
+	square.coltok = false;
 	
 	if (frameCount == 1) {
 		if (paused == false) {
@@ -226,7 +227,7 @@ const loop = function () {
 		square.coltok = false;
 		setTimeout(function(){
 				square.jumping = false ;}, 1000);
-	} else { square.coltok = true;}
+	}
   
 	square.xVelocity = (4 + (frameCount/2))*kill;
 	square.yVelocity += 1.5;
