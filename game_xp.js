@@ -224,6 +224,8 @@ const loop = function () {
 		boing.play();
 		square.jumping = true;
 		square.coltok = false;
+		setTimeout(function(){
+				square.jumping = false ;}, 500);
 	}
   
 	square.xVelocity = (4 + (frameCount/2))*kill;
@@ -295,8 +297,6 @@ const loop = function () {
 	// Solid floor
 	if (square.y > 586 - 16 - 125) {
 		// square.jumping = false;
-		setTimeout(function(){
-				square.jumping = false ;}, 500);
 		square.coltok = true;
 		square.y = 586 - 16 - 125;
 		square.yVelocity = 0;
