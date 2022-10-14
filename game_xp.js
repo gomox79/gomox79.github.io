@@ -295,14 +295,11 @@ const loop = function () {
 	// Solid floor
 	if (square.y > 586 - 16 - 125) {
 		// square.jumping = false;
+		setTimeout(function(){
+				square.jumping = false ;}, 500);
 		square.coltok = true;
 		square.y = 586 - 16 - 125;
 		square.yVelocity = 0;
-	}
-	
-	if (square.y > 586 - 16 - 125) {
-		setTimeout(function(){
-				square.jumping = false ;}, 1000);
 	}
 	
 	if (notsquare.y > 586 - 16 - 125) {
