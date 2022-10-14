@@ -46,7 +46,7 @@ var yay = document.getElementById("itsAudio");
 const square = {
 
   height: 125,
-  jumping: true,
+  jumping: false,
   width: 125,
   x: 0,
   xVelocity: 1,
@@ -252,7 +252,7 @@ const loop = function () {
 	for (let j=0; j < obXCoors.length; j++) {
 		Cols[j] = Math.abs(obXCoors[j] - square.x);
 		
-		if (Cols[j] < 30 && square.y == 586 - 16 - 125) { //square.jumping == false
+		if (Cols[j] < 30 && square.jumping == false) { //square.jumping == false
 			oof.play();
 			oof.volume = 1.0;
 			square.x = -20;
@@ -274,7 +274,7 @@ const loop = function () {
 	// Collision
 	obCol = Math.abs(notsquare.x - square.x);
 	
-	if (obCol < 30 && square.y == 586 - 16 - 125) { //square.jumping == false
+	if (obCol < 30 && square.jumping == false) { //square.jumping == false
 		oof.play();
 		oof.volume = 1.0;
 		square.x = -20;
