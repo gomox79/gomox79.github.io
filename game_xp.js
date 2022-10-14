@@ -17,7 +17,7 @@ var token = 0;
 var kill = 1;
 var paused = false;
 
-var perjum = 0.5;
+//var perjum = 0.5;
 
 // Scret codes
 cheat = localStorage.getItem('cheat');
@@ -47,6 +47,7 @@ const square = {
 
   height: 125,
   jumping: false,
+  coltok: true,
   width: 125,
   x: 0,
   xVelocity: 1,
@@ -222,9 +223,10 @@ const loop = function () {
 		square.yVelocity -= 30;
 		boing.play();
 		square.jumping = true;
+		square.coltok = false;
 		setTimeout(function(){
 				square.jumping = false ;}, 1000);
-	}
+	} else { square.coltok = true;}
   
 	square.xVelocity = (4 + (frameCount/2))*kill;
 	square.yVelocity += 1.5;
@@ -252,7 +254,7 @@ const loop = function () {
 	for (let j=0; j < obXCoors.length; j++) {
 		Cols[j] = Math.abs(obXCoors[j] - square.x);
 		
-		if (Cols[j] < 30 && square.yVelocity == 0) { //square.jumping == false
+		if (Cols[j] < 30 && square.coltok == true) { //square.jumping == false
 			oof.play();
 			oof.volume = 1.0;
 			square.x = -20;
@@ -274,7 +276,7 @@ const loop = function () {
 	// Collision
 	obCol = Math.abs(notsquare.x - square.x);
 	
-	if (obCol < 30 && square.yVelocity == 0) { //square.jumping == false
+	if (obCol < 30 && square.coltok == true) { //square.jumping == false
 		oof.play();
 		oof.volume = 1.0;
 		square.x = -20;
