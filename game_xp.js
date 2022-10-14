@@ -220,6 +220,8 @@ const loop = function () {
 		square.yVelocity -= 30;
 		boing.play();
 		square.jumping = true;
+		setTimeout(function(){
+				square.jumping = false ;}, 1000);
 	}
   
 	square.xVelocity = (4 + (frameCount/2))*kill;
@@ -248,7 +250,7 @@ const loop = function () {
 	for (let j=0; j < obXCoors.length; j++) {
 		Cols[j] = Math.abs(obXCoors[j] - square.x);
 		
-		if (Cols[j] < 30 && square.jumping == false) {
+		if (Cols[j] <= 30 && square.jumping == false) {
 			oof.play();
 			oof.volume = 1.0;
 			square.x = -20;
@@ -270,7 +272,7 @@ const loop = function () {
 	// Collision
 	obCol = Math.abs(notsquare.x - square.x);
 	
-	if (obCol < 10 && square.jumping == false) {
+	if (obCol < 10 && square.y < 586 - 16) { //square.jumping == false
 		oof.play();
 		oof.volume = 1.0;
 		square.x = -20;
