@@ -4,6 +4,27 @@ const context = document.querySelector("canvas").getContext("2d");
 context.canvas.height = 600;
 context.canvas.width = 1400;
 
+// Chrono
+var minutesLabel = document.getElementById("minutes");
+var secondsLabel = document.getElementById("seconds");
+var totalSeconds = 0;
+setInterval(setTime, 1000);
+
+function setTime() {
+  ++totalSeconds;
+  secondsLabel.innerHTML = pad(totalSeconds % 60);
+  minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+}
+
+function pad(val) {
+  var valString = val + "";
+  if (valString.length < 2) {
+    return "0" + valString;
+  } else {
+    return valString;
+  }
+}
+
 // Initial conditions
 let frameCount = 1;
 let obCount = frameCount;
@@ -20,7 +41,7 @@ var paused = false;
 //var perjum = 0.5;
 
 // Scret codes
-cheat = localStorage.getItem('cheat');
+// cheat = localStorage.getItem('cheat');
 
 // Variable text / images
 var dcount = document.getElementById("dem"); dcount.value = 0;
