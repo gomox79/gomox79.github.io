@@ -11,7 +11,7 @@ var totalSeconds = 0;
 setInterval(setTime, 1000);
 
 function setTime() {
-  if (kill != 0) ++totalSeconds;
+  if (kill != 0 && paused == false) ++totalSeconds;
   secondsLabel.innerHTML = pad(totalSeconds % 60);
   minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
 }
