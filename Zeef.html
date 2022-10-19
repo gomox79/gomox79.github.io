@@ -170,12 +170,12 @@
   </head>
  
 	<body> <!-- Chronometer -->
-		<div class = "glow" style="text-align:center"> 
-			<label id = "minutes">00</label>:<label id = "seconds">00</label>
-		</div>
-	<h1 id="A0" style="display:block"> 
+	<div> 
+		Time:<label id = "minutes" class = "glow" style = "text-align:right">00</label>:<label id = "seconds" class = "glow" style = "text-align:right">00</label>
+	<label id="A0" style="display:block" style="text-align:left"> 
 		<textarea readonly id="loc" name="location" rows="1" class = "glow"></textarea>
-	</h1>
+	</label>
+	</div>
     <canvas id="canvas"><img id="pic" src="Zeefman.png" width="600" height="450" style="border-radius: 25px">
 	<img id="danger" src="axle-face.png" width="2578" height="2578">
 	<img id="vodka" src="vodka.png" width="600" height="600">
