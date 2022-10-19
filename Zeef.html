@@ -171,10 +171,12 @@
  
 	<body> <!-- Chronometer -->
 	<div class = "glow"> 
-		<label>Time: </label><label id = "minutes">00</label>:<label id = "seconds">00</label>
-	<label id="A0" style="display:block" style="float:left"> 
+		<div style = "float:right">
+		Time: <label id = "minutes">00</label>:<label id = "seconds">00</label>
+		</div>
+	<div id="A0" style="display:block" style="float:left"> 
 		<textarea readonly id="loc" name="location" rows="1" style = "text-align:center"></textarea>
-	</label>
+	</div>
 	</div>
     <canvas id="canvas"><img id="pic" src="Zeefman.png" width="600" height="450" style="border-radius: 25px">
 	<img id="danger" src="axle-face.png" width="2578" height="2578">
