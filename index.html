@@ -265,12 +265,16 @@
 </head>
 
 <body>
-	<h1 style = "align:center"> <button class="glow-on-hover" type="button" onclick = "start()">Start game</button></br> </h1>
-	<h2> <button class="glow-on-hover" type="button" onclick = "unlock()">Enter code for unlockables</button></br> </h2>
-	<h3 id = "unlock" style = "display:none"> 
-	<p style = "text-align:center" text-color = "#FFFFFF"> -------------------------- </p>
-	<p style = "text-align:center"> <textarea id = "cheat" class = "location" rows="1" text-color = "#FFFFFF"> </textarea> </p> 
-	<p style = "text-align:center"> <button class="glow-on-hover-2" type="button" onclick = "set()">Validate</button> </p> </br>
+	<h1 style = "align:center"> <button class="glow-on-hover" type="button" onclick = "start()">Play as...</button></br> </h1>
+	<h2 id = "modes" style = "display:none">
+		<p style = "text-align:center"> <button class="glow-on-hover-2" type="button" onclick = "start_1()">Jack</button> </p>
+		<p style = "text-align:center"> <button class="glow-on-hover-2" type="button" onclick = "start_2()">Axle</button> </p> 
+		<p style = "text-align:center"> <button class="glow-on-hover-2" type="button" onclick = "start_3()">Zeus</button> </p> 
+	<h3> <button class="glow-on-hover" type="button" onclick = "unlock()">Enter code for unlockables</button></br> </h3>
+	<!-- <h4 id = "unlock" style = "display:none"> 
+		<p style = "text-align:center" text-color = "#FFFFFF"> -------------------------- </p>
+		<p style = "text-align:center"> <textarea id = "cheat" class = "location" rows="1" text-color = "#FFFFFF"> </textarea> </p> 
+		<p style = "text-align:center"> <button class="glow-on-hover-2" type="button" onclick = "set()">Validate</button> </p> </br> -->
 	<h5> <button class="glow-on-hover" type="button" onclick = "samhub()">Back to company website</button></br> </h5>
 	</br>
 	<h6 style = "align:center"> 
@@ -297,14 +301,24 @@
 	
 	<script type = "text/javascript">
 	var x = document.getElementById("unlock");
-	var y = document.getElementById("cheat");
+	var x_2 = document.getElementById("modes");
+	//var y = document.getElementById("cheat");
 	x.style.display = 'none';
-	y.value = 'Write code here';
-	var z = "Jack.html";
+	x_2.style.display = 'none';
+	/*y.value = 'Write code here';
+	var z = "Jack.html";*/
 	
-		function start() {
+		/*function start() {
 			set();
 			window.location.href = z;
+		}*/
+		
+		function start() {
+			if (x_2.style.display == 'none') {
+				x_2.style.display = 'block';
+			} else {
+				x_2.style.display = 'none';
+			}
 		}
 		
 		function unlock() {
@@ -315,7 +329,19 @@
 			}
 		}
 		
-		function set() {
+		function start_1() {
+			window.location.href = "Jack.html";
+		}
+		
+		function start_2() {
+			window.location.href = "Axle.html";
+		}
+		
+		function start_3() {
+			window.location.href = "Zeef.html";
+		}
+		
+		/*function set() {
 			if (y.value == 'Reverse') {
 				z = "Axle.html";
 				y.value = 'element unlocked: reverse';
@@ -327,16 +353,16 @@
 				localStorage.setItem('cheat', 0);
 				y.value = 'invalid code';
 			}
-		}
+		}*/
 		
 		function samhub() {
 			window.location.href = "https://sites.google.com/usna.edu/samuraihub/mislo?authuser=1";
 		}
 		
-		window.onload = function() {
+		/*window.onload = function() {
 			y.value = 'Write your code(s) here.';
 			z = "Jack.html";
-		}
+		}*/
 	</script>
 </body>
 	
