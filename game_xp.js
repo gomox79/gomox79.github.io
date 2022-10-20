@@ -316,7 +316,7 @@ const loop = function () {
 	}
 	
 	// Bonus
-	if (totalSeconds % 10 == 0 && demerits <= ((totalSeconds/10)*50)) demerits -= 50;
+	if (totalSeconds % 10 == 0 && totalSeconds != 0 && demerits <= ((totalSeconds/10)*50)) demerits -= 50;
 
 	// Solid floor
 	if (square.y > 586 - 16 - 125) {
