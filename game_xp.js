@@ -314,6 +314,9 @@ const loop = function () {
 				document.getElementById('field_0').style.display='none' ;}, 1000);
 		}
 	}
+	
+	// Bonus
+	if (totalSeconds % 30 == 0 && demerits <= ((totalSeconds/30)*50)) demerits -= 50;
 
 	// Solid floor
 	if (square.y > 586 - 16 - 125) {
