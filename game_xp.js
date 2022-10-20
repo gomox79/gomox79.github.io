@@ -316,7 +316,9 @@ const loop = function () {
 	}
 	
 	// Bonus
-	if (totalSeconds % 10 == 0 && totalSeconds != 0 && dcount.value <= ((totalSeconds/10)*50)) dcount.value -= 10;
+	if ((totalSeconds % 10 == 0) && (totalSeconds > 0) && (parseInt(dcount.value) <= ((totalSeconds/10)*50))) { 
+		dcount.value = parseInt(dcount.value) - 10*token; 
+	}
 
 	// Solid floor
 	if (square.y > 586 - 16 - 125) {
