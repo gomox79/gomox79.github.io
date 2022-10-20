@@ -271,7 +271,7 @@ const loop = function () {
 	notsquare.x += notsquare.xVelocity;
 	notsquare.y += notsquare.yVelocity;
   
-	// Collision
+	// Static Collision
 	for (let j=0; j < obXCoors.length; j++) {
 		Cols[j] = Math.abs(obXCoors[j] - square.x);
 		
@@ -294,7 +294,7 @@ const loop = function () {
 		}
 	};
 	
-	// Collision
+	// Dynamic Collision
 	obCol = Math.abs(notsquare.x - square.x);
 	
 	if (obCol < 30 && square.coltok == true) { //square.jumping == false
@@ -316,7 +316,7 @@ const loop = function () {
 	}
 	
 	// Bonus
-	if (totalSeconds % 10 == 0 && totalSeconds != 0 && demerits <= ((totalSeconds/10)*50)) demerits -= 50;
+	if (totalSeconds % 10 == 0 && totalSeconds != 0 && dcount.value <= ((totalSeconds/10)*50)) dcount.value -= 10;
 
 	// Solid floor
 	if (square.y > 586 - 16 - 125) {
