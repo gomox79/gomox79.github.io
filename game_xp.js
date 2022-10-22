@@ -18,7 +18,7 @@ function setTime() {
 
 // Bonus beta
 function bonus() {
-	if (totalSeconds % 10 == 0 && totalSeconds > 0 && dcount.value <= 10*token) {
+	if (totalSeconds % 10 == 0 && totalSeconds > 0 && dcount.value <= totalSeconds) {
 		dcount.value -= 10*token;
 	}
 }
@@ -370,6 +370,9 @@ const loop = function () {
 		context.closePath();
 		context.fill();
 	})
+	
+	// bonus
+	bonus();
 
 	// Ground element
 	context.strokeStyle = "#000000";
