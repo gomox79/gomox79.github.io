@@ -16,13 +16,6 @@ function setTime() {
   minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
 }
 
-// Bonus beta
-/* function bonus() {
-	if (totalSeconds % 10 == 0 && totalSeconds > 0 && dcount.value <= totalSeconds) {
-		dcount.value -= 10*(token + 1);
-	}
-} */
-
 function pad(val) {
   var valString = val + "";
   if (valString.length < 2) {
@@ -372,9 +365,6 @@ const loop = function () {
 		context.closePath();
 		context.fill();
 	})
-	
-	// bonus
-	//bonus();
 
 	// Ground element
 	context.strokeStyle = "#000000";
