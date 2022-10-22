@@ -289,8 +289,8 @@ const loop = function () {
 			square.y -= 586 - 16 - 32;
 			demerits += 50;
 			token += 1;
-			//dcount.value = parseInt(dcount.value) + 10*token;
-			dcount.value += 10*token;
+			dcount.value = parseInt(dcount.value) + 10*token;
+			//dcount.value += 10*token;
 			lvlcount();
 			if (parseInt(dcount.value) > 100) {
 				over();
@@ -312,8 +312,8 @@ const loop = function () {
 		square.y -= 586 - 16 - 32;
 		demerits += 50;
 		token += 1;
-		//dcount.value = parseInt(dcount.value) + 10*token;
-		dcount.value += 10*token;
+		dcount.value = parseInt(dcount.value) + 10*token;
+		//dcount.value += 10*token;
 		lvlcount();
 		if (parseInt(dcount.value) > 100) {
 			over();
