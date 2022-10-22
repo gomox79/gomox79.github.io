@@ -17,11 +17,11 @@ function setTime() {
 }
 
 // Bonus beta
-function bonus() {
+/* function bonus() {
 	if (totalSeconds % 10 == 0 && totalSeconds > 0 && dcount.value <= totalSeconds) {
 		dcount.value -= 10*(token + 1);
 	}
-}
+} */
 
 function pad(val) {
   var valString = val + "";
@@ -289,7 +289,8 @@ const loop = function () {
 			square.y -= 586 - 16 - 32;
 			demerits += 50;
 			token += 1;
-			dcount.value = parseInt(dcount.value) + 10*token;
+			//dcount.value = parseInt(dcount.value) + 10*token;
+			dcount.value += 10*token;
 			lvlcount();
 			if (parseInt(dcount.value) > 100) {
 				over();
@@ -311,7 +312,8 @@ const loop = function () {
 		square.y -= 586 - 16 - 32;
 		demerits += 50;
 		token += 1;
-		dcount.value = parseInt(dcount.value) + 10*token;
+		//dcount.value = parseInt(dcount.value) + 10*token;
+		dcount.value += 10*token;
 		lvlcount();
 		if (parseInt(dcount.value) > 100) {
 			over();
@@ -372,7 +374,7 @@ const loop = function () {
 	})
 	
 	// bonus
-	bonus();
+	//bonus();
 
 	// Ground element
 	context.strokeStyle = "#000000";
