@@ -19,7 +19,7 @@ function setTime() {
 // Bonus beta
 function bonus() {
 	if (totalSeconds % 10 == 0 && totalSeconds > 0 && dcount.value <= totalSeconds) {
-		dcount.value -= 10*token;
+		dcount.value -= 10*(token + 1);
 	}
 }
 
