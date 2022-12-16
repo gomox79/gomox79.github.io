@@ -10,28 +10,28 @@ context.canvas.height = height;
 context.canvas.width = width;
 
 // Main script variables
-var demerits = 0;
-var lvlToken = 0;
-var killCoeff = 1;
-var paused = false;
+let demerits = 0;
+let lvlToken = 0;
+let killCoeff = 1;
+let paused = false;
 
 // HTML elements
-var dcount = document.getElementById('dem');
-var lvl = document.getElementById('off');
-var loc = document.getElementById('loc');
-var bg = document.getElementById('bg1');
-var img1 = document.getElementById('pic'); // Player
-var img2 = document.getElementById('danger'); // Dynamic obstacle
-var img3 = document.getElementById('vodka'); // Static obstacle
+let dcount = document.getElementById('dem');
+let lvl = document.getElementById('off');
+let loc = document.getElementById('loc');
+let bg = document.getElementById('bg1');
+let img1 = document.getElementById('pic'); // Player
+let img2 = document.getElementById('danger'); // Dynamic obstacle
+let img3 = document.getElementById('vodka'); // Static obstacle
 
-let bgMus = document.getElementById('myAudio'); // Background music
-let succMus = document.getElementById('itsAudio'); // Success music
-let failMus = document.getElementById('yourAudio'); // Failure music
-let jmpSound = document.getElementById('herAudio'); // Jump sound
-let colSound = document.getElementById('hisAudio'); // Collision sound
+const bgMus = document.getElementById('myAudio'); // Background music
+const succMus = document.getElementById('itsAudio'); // Success music
+const failMus = document.getElementById('yourAudio'); // Failure music
+const jmpSound = document.getElementById('herAudio'); // Jump sound
+const colSound = document.getElementById('hisAudio'); // Collision sound
 
 // Player element
-let player = {
+const player = {
 	height: squareDim,
 	width: squareDim,
 	x: 0,
@@ -42,7 +42,7 @@ let player = {
 };
 
 // Dynamic obstacle element
-let opponent = {
+const opponent = {
 	height: squareDim,
 	width: squareDim,
 	x: 1390,
@@ -54,13 +54,9 @@ let opponent = {
 let frameCount = 1;
 let obCount = frameCount;
 let statXCoors = [];
-let statCols = [];
 dcount.value = 0;
 lvl.value = 'English';
 loc.value = 'ACME';
-
-// Other variables
-//let statXCoor;
 
 // Static obstacles generation
 const nextFrame = () => {
@@ -70,7 +66,7 @@ const nextFrame = () => {
 		statXCoor = Math.floor(Math.random()*(1165 - 140 + 1) + 140);
 		statXCoors.push(statXCoor);
 	}
-}
+};
 
 // Player control
 const controller = {
@@ -89,13 +85,13 @@ const controller = {
 			default: break;
 		}
 	}
-}
+};
 
 // Chronometer functions
 let secLabel = document.getElementById('seconds');
 let minLabel = document.getElementById('minutes');
 let timeCount = 0;
-if (kill && !paused) setInterval(setTime, 1000); // Calls setTime() each seconds
+if (killCoeff && !paused) setInterval(setTime, 1000); // Calls setTime() each seconds
 
 function setTime() {
 	++ timeCount;
@@ -137,7 +133,7 @@ function collide() {
 	}
 	
 	document.getElementById('field_0').style.display = 'block';
-	setTimeout(function() document.getElementById('field_0').style.display = 'none';, 1000);
+	setTimeout(function() {document.getElementById('field_0').style.display = 'none';}, 1000);
 	loop();
 }
 
@@ -197,7 +193,7 @@ function loop() {
 		player.Vy -= 30;
 		player.jumping = !player.jumping;
 		jmpSound.play();
-		setTimeout(function() player.jumping = !player.jumping;, 500);
+		setTimeout(function() {player.jumping = !player.jumping;}, 500);
 	}
 	
 	// Frame check
