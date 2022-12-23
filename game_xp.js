@@ -4,8 +4,8 @@ const width = 1400;
 const squareDim = 125;
 
 // Canvas element
-let canvas = document.getElementById('canvas');
-let context = document.querySelector('canvas').getContext('2d');
+const canvas = document.getElementById('canvas');
+const context = document.querySelector('canvas').getContext('2d');
 context.canvas.height = height;
 context.canvas.width = width;
 
@@ -38,7 +38,7 @@ const player = {
 	y: 0,
 	Vx: 1,
 	Vy: 0,
-	jumping: false,
+	jumping: false
 };
 
 // Dynamic obstacle element
@@ -91,7 +91,7 @@ const controller = {
 let secLabel = document.getElementById('seconds');
 let minLabel = document.getElementById('minutes');
 let timeCount = 0;
-if (killCoeff && !paused) setInterval(setTime, 1000); // Calls setTime() each seconds
+if (killCoeff && !paused) setInterval(setTime, 1000); // Calls setTime() each second
 
 function setTime() {
 	++ timeCount;
@@ -182,7 +182,7 @@ function draw() {
 }
 
 // Main script
-function loop() {
+const loop = function() {
 	// Event checks
 	if (controller.esc) {
 		if (paused) resume();
@@ -274,7 +274,7 @@ function loop() {
 	context.drawImage(bg, 0, 0, width, height);
 	
 	// Ground Drawing
-	context.strokestyle = '#000000';
+	context.strokeStyle = '#000000';
 	context.lineWidth = 30;
 	context.beginPath();
 	context.moveTo(0, 585);
