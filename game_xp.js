@@ -165,13 +165,13 @@ function success() {
 function lvlcount() {
 	switch (token) {
 		case 1:
-		lvl.value = 'Sloppy';
+		lvl.value = 'English';
 		break;
 		case 2:
-		lvl.value = 'Irish';
+		lvl.value = 'Sloppy';
 		break;
 		case 3:
-		lvl.value = 'Spanish';
+		lvl.value = 'Irish';
 		break;
 		case 4:
 		lvl.value = 'Polish';
